@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>1
+        <input type="button" value="上移">
+        <input type="button" value="下移"/>
+    </li>
+    <li>2
+        <input type="button" value="上移">
+        <input type="button" value="下移"/>
+    </li>
+    <li>3
+        <input type="button" value="上移">
+        <input type="button" value="下移"/>
+    </li>
+    <li>4
+        <input type="button" value="上移">
+        <input type="button" value="下移"/>
+    </li>
+    <li>5
+        <input type="button" value="上移">
+        <input type="button" value="下移"/>
+    </li>
+</ul>
+<div class="box">sgd
+<span>dsg</span>
+</div>
+<dvi ></dvi>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    $(".box").empty();
+    $(".box").remove();
+    /*var $div = $("<div id='div1'>dskl</div>")
+     $("body").append($div);
+     $div.after($("<div>dsg</div>"))
+     $div.before($("<div>safsa</div>"))
+     $("<div>dsgd</div>").insertBefore($div);
+     $("<span>dgfsd</span>").insertAfter($div);
+     $div.append($("<span>df</span>"));
+     $div.prepend($("<div>dgd</div>"));
+     $("<b>s</b>").appendTo($div);
+     $("<e>a</e>").prependTo($div);*/
+    $("input[value = '上移']").click(function(){
+        var $nowli = $(this).closest("li");
+        var $pre = $nowli.prev();
+        if($pre.length == 0){
+            alert("到顶");
+        }else{
+            $pre.before($nowli);
+        }
+    })
+    $("input[value = '下移']").click(function(){
+        var $nowli = $(this).closest("li");
+        var $pre = $nowli.next();
+        console.log($pre);
+        if($pre.length == 0){
+            alert("到顶");
+        }else{
+            $pre.after($nowli);
+        }
+    })
+
+    var nowtime = new Date();
+    alert(nowtime.toLocaleTimeString());
+</script>
+
+</body>
+</html>
